@@ -5,12 +5,24 @@ char concatena(char cadeia1[], char cadeia2[], char concatenador, char cadeiaCon
 int main()
 {
 	//Recebe duas cadeias de caracteres e um concatenador
-	char cadeia1[] = "Nome1";
-	char cadeia2[] = "Nome2";
-	char concatenador = '-';
+	char cadeia1[50];
+	char cadeia2[50];
+	char concatenador;
+
+	//Recebe cadeia1:
+	printf("Digite a primeira cadeia de caracteres: ");
+	scanf("%[^\n]s", cadeia1);
+
+	//Recebe cadeia2:
+	printf("Digite a segunda cadeia de caracteres: ");
+	scanf(" %[^\n]s", cadeia2);
+
+	//Recebe concatenador:
+	printf("Digite o concatenador: ");
+	scanf(" %c", &concatenador);
 
 	//Cria uma cadeia de caracteres para armazenar a cadeia concatenada
-	char cadeiaConcatenada[100];
+	char cadeiaConcatenada[101];
 
 	//Imprime cadeia concatenada:
 	concatena(cadeia1, cadeia2, concatenador, cadeiaConcatenada);
