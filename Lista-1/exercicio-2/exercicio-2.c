@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//Declaração das funções:
 void impressaoMatriz(float matriz[3][3]);
 void copiaMatriz(float matrizA[3][3], float matrizB[3][3]);
 void multiplicacaoMatrizes(float matrizA[3][3], float matrizB[3][3], float matrizC[3][3]);
@@ -7,7 +8,7 @@ void elevaMatriz(float matrizA[3][3], float matrizB[3][3], int n);
 
 int main()
 {
-    /*declaraçaõ das matrizes A e B:*/
+    //Declaração das matrizes calculadas
     float A[3][3] = {
         {0.4, 0.5, 0.1},
         {0.3, 0.4, 0.3},
@@ -20,16 +21,16 @@ int main()
         {0.3, 0.1, 0.9}
     };
 
-    /*declaração da matriz C:*/
+    //Declaração da matriz C de resultado:
     float C[3][3];
 
-    /*declaração dos indíces:*/
+    //Declaração dos indices:
     int i, j, k;
 
-    /*multiplicação das matrizes A e B:*/
+    //Multiplicação das matrizes A e B, resultado em C:
     multiplicacaoMatrizes(A, B, C);    
 
-    /*impressão das matrizes:*/
+    //Impressão das matrizes:
     printf("Matriz A:\n");
     impressaoMatriz(A);
 
@@ -39,17 +40,17 @@ int main()
     printf("\nMatriz C:\n");
     impressaoMatriz(C);
 
-    /*recebe n:*/
+    //Recebe expoenente n:
     int n;
     printf("\nDigite o valor de n: ");
     scanf("%d", &n);
 
-    /*declaração da matriz Cn:*/
+    //Declaração da matriz C^n:
     float Cn[3][3];
     elevaMatriz(C, Cn, n);
     
 
-    /*imprime C^n*/
+    //Impressão da matriz C^n:
     printf("\nMatriz C^n:\n");
     impressaoMatriz(Cn);
 
@@ -59,6 +60,7 @@ int main()
 void impressaoMatriz(float matriz[3][3]) {
     int i, j;
 
+    //Imprime cada linha da matriz:
     for (i = 0; i < 3; i++) {
         printf("[");
         for (j = 0; j < 3; j++) {
@@ -74,6 +76,7 @@ void impressaoMatriz(float matriz[3][3]) {
 void copiaMatriz(float matrizA[3][3], float matrizB[3][3]) {
     int i, j;
 
+    //Copia cada elemento da matriz A para a matriz B:
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3;j++) {
             matrizB[i][j] = matrizA[i][j];
@@ -84,6 +87,7 @@ void copiaMatriz(float matrizA[3][3], float matrizB[3][3]) {
 void multiplicacaoMatrizes(float matrizA[3][3], float matrizB[3][3], float matrizC[3][3]) {
     int i, j, k;
 
+    //Soma o produto dos elementos de cada linha de A com cada coluna de B:
     for (i = 0; i < 3; i++) {
         for (j = 0; j < 3; j++){
             matrizC[i][j] = 0;
@@ -100,6 +104,7 @@ void elevaMatriz(float matrizA[3][3], float matrizB[3][3], int n) {
     copiaMatriz(matrizA, matriz);
     copiaMatriz(matrizA, matrizB);
 
+    //Multiplica a matriz A por si mesma n vezes:
     for (i = 1; i < n; i++) {
         multiplicacaoMatrizes(matrizA, matriz, matrizB);
         copiaMatriz(matrizB, matriz);
