@@ -1,0 +1,6 @@
+Os exercícios 1 e 3 podem ser compilador normalmente:
+> gcc exercicio-1 -o exercicio-1.exe
+> gcc exercicio-3 -o exercicio-3.exe
+
+O exercício 2 necessita compilar com o arquivo `exercicio-2-funcoes.c`:
+> gcc exercicio-2-funcoes.c exercicio-2.c -o exercicio-2.exe
