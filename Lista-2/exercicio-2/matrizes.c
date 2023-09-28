@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "exercicio-2-funcoes.h"
+#include "matrizes.h"
 
 void impressaoMatriz(int linhas, int colunas, float matriz[linhas][colunas]) {
     int i, j;

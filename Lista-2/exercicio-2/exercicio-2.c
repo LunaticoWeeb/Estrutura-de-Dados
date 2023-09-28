@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "exercicio-2-funcoes.h"
+#include "matrizes.h"
 
 int main()
 {
