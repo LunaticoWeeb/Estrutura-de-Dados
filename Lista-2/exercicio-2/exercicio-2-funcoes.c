@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "exercicio-2-funcoes.h"
 
-void impressaoMatriz(int linhas, int colunas, float matriz[3][3]) {
+void impressaoMatriz(int linhas, int colunas, float matriz[linhas][colunas]) {
     int i, j;
 
     //Imprime cada linha da matriz:
@@ -17,7 +17,7 @@ void impressaoMatriz(int linhas, int colunas, float matriz[3][3]) {
     }
 }
 
-void copiaMatriz(int linhas, int colunas, float matrizA[3][3], float matrizB[3][3]) {
+void copiaMatriz(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas]) {
     int i, j;
 
     //Copia cada elemento da matriz A para a matriz B:
@@ -28,21 +28,21 @@ void copiaMatriz(int linhas, int colunas, float matrizA[3][3], float matrizB[3][
     }
 }
 
-void multiplicacaoMatrizes(int linhas, int colunas, float matrizA[3][3], float matrizB[3][3], float matrizC[3][3]) {
+void multiplicacaoMatrizes(int linhasA, int colunasA, float matrizA[linhasA][colunasA], int linhasB, int colunasB, float matrizB[linhasB][colunasB], float matrizC[linhasA][colunasB]) {
     int i, j, k;
 
     //Soma o produto dos elementos de cada linha de A com cada coluna de B:
-    for (i = 0; i < linhas; i++) {
-        for (j = 0; j < colunas; j++){
+    for (i = 0; i < linhasA; i++) {
+        for (j = 0; j < colunasB; j++){
             matrizC[i][j] = 0;
-            for (k = 0; k < 3; k++) {
+            for (k = 0; k < linhasB; k++) {
                 matrizC[i][j] += matrizA[i][k] * matrizB[k][j];
             }
         }
     }
 }
 
-void elevaMatriz(int linhas, int colunas, float matrizA[3][3], float matrizB[3][3], int n) {
+void elevaMatriz(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas], int n) {
     int i, j, k;
     float matriz[linhas][colunas];
     copiaMatriz(linhas, colunas, matrizA, matriz);
@@ -50,7 +50,18 @@ void elevaMatriz(int linhas, int colunas, float matrizA[3][3], float matrizB[3][
 
     //Multiplica a matriz A por si mesma n vezes:
     for (i = 1; i < n; i++) {
-        multiplicacaoMatrizes(linhas, colunas, matrizA, matriz, matrizB);
+        multiplicacaoMatrizes(linhas, colunas, matrizA, linhas, colunas, matriz, matrizB);
         copiaMatriz(linhas, colunas, matrizB, matriz);
     }
+}
+
+void multiplica_e_eleva(int linhasA, int colunasA, float matrizA[linhasA][colunasA], int linhasB, int colunasB, float matrizB[linhasB][colunasB], float matrizC[linhasA][colunasB], int n) {
+    //Primeiro multiplica as matrizes A e B, armazenando o resultado na matriz C: 
+    multiplicacaoMatrizes(linhasA, colunasA, matrizA, linhasB, colunasB, matrizB, matrizC);
+
+    float matrizAux[linhasA][colunasB];
+
+    //Depois eleva a matriz C ao expoente n:
+    elevaMatriz(linhasA, colunasB, matrizC, matrizAux, n);
+    copiaMatriz(linhasA, colunasB, matrizAux, matrizC);
 }
