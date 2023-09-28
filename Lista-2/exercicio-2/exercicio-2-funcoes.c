@@ -39,6 +39,17 @@ void somaMatrizes(int linhas, int colunas, float matrizA[linhas][colunas], float
     }
 }
 
+void subtraiMatrizes(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas], float matrizC[linhas][colunas]) {
+    int i, j;
+
+    //Subtrai os elementos de cada linha de A com os elementos de cada linha de B:
+    for (i = 0; i < linhas; i++) {
+        for (j = 0; j < colunas; j++){
+            matrizC[i][j] = matrizA[i][j] - matrizB[i][j];
+        }
+    }
+}
+
 void multiplicacaoMatrizes(int linhasA, int colunasA, float matrizA[linhasA][colunasA], int linhasB, int colunasB, float matrizB[linhasB][colunasB], float matrizC[linhasA][colunasB]) {
     int i, j, k;
 

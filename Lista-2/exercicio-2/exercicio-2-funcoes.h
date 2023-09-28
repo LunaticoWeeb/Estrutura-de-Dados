@@ -6,6 +6,9 @@ void copiaMatriz(int linhas, int colunas, float matrizA[linhas][colunas], float 
 
 void somaMatrizes(int linhas, int colunas, float matrizA[linhas][colunas], 
                   float matrizB[linhas][colunas], float matrizC[linhas][colunas]);
+                  
+void subtraiMatrizes(int linhas, int colunas, float matrizA[linhas][colunas], 
+                     float matrizB[linhas][colunas], float matrizC[linhas][colunas]);
 
 void multiplicacaoMatrizes(int linhasA, int colunasA, float matrizA[linhasA][colunasA], 
                               int linhasB, int colunasB, float matrizB[3][3], float matrizC[linhasA][colunasB]);

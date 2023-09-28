@@ -49,5 +49,14 @@ int main()
     printf("\nMatriz F:\n");
     impressaoMatriz(2, 6, F);
 
+    //Declaração da matriz G de resultado:
+    float G[2][6];
+
+    subtraiMatrizes(2, 6, D, E, G); //G = D - E
+
+    //Impressão da matriz G:
+    printf("\nMatriz G:\n");
+    impressaoMatriz(2, 6, G);
+
     return 0;
 }
