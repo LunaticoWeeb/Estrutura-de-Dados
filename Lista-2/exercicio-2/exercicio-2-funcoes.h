@@ -1,9 +1,9 @@
 #ifndef EXERCICIO_2_FUNCOES_H
 #define EXERCICIO_2_FUNCOES_H
 
-void impressaoMatriz(float matriz[3][3]);
-void copiaMatriz(float matrizA[3][3], float matrizB[3][3]);
-void multiplicacaoMatrizes(float matrizA[3][3], float matrizB[3][3], float matrizC[3][3]);
-void elevaMatriz(float matrizA[3][3], float matrizB[3][3], int n);
+void impressaoMatriz(int linhas, int colunas, float matriz[linhas][colunas]);
+void copiaMatriz(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas]);
+void multiplicacaoMatrizes(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas], float matrizC[linhas][colunas]);
+void elevaMatriz(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas], int n);
 
 #endif //EXERCICIO_2_FUNCOES_H
