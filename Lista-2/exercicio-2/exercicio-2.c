@@ -29,5 +29,25 @@ int main()
     printf("\nMatriz C:\n");
     impressaoMatriz(3, 3, C);
 
+    //Declaração matrizes para a soma:
+    float D[2][6] = {
+        {0.1, 0.2, 0.3, 0.4, 0.5, 0.6},
+        {0.2, 0.3, 0.4, 0.5, 0.6, 0.7}
+    };
+
+    float E[2][6] = {
+        {0.4, 0.2, 0.3, 0.4, 0.5, 0.6},
+        {0.2, 3, 0.4, 5, 0.65, 0.7}
+    };
+
+    //Declaração da matriz F de resultado:
+    float F[2][6];
+
+    somaMatrizes(2, 6, D, E, F); //F = D + E
+
+    //Impressão da matriz F:
+    printf("\nMatriz F:\n");
+    impressaoMatriz(2, 6, F);
+
     return 0;
 }
