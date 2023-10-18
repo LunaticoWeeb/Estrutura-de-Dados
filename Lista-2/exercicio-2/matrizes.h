@@ -1,6 +1,17 @@
 #ifndef EXERCICIO_2_FUNCOES_H
 #define EXERCICIO_2_FUNCOES_H
 
+
+typedef struct matriz_t
+{
+    int linhas;
+    int colunas;
+    float **matriz;
+} MATRIZ;
+
+
+MATRIZ *criaMatriz(int linhas, int colunas);
+
 void impressaoMatriz(int linhas, int colunas, float matriz[linhas][colunas]);
 void copiaMatriz(int linhas, int colunas, float matrizA[linhas][colunas], float matrizB[linhas][colunas]);
 

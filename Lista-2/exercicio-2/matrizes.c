@@ -1,6 +1,14 @@
 #include <stdio.h>
 #include "matrizes.h"
 
+MATRIZ *criaMatriz(int linhas, int colunas) {
+    MATRIZ *matriz = (MATRIZ *) malloc(sizeof(MATRIZ));
+    matriz->linhas = linhas;
+    matriz->colunas = colunas;
+    matriz->matriz = (float *) malloc(linhas * colunas * sizeof(float));
+    return matriz;
+}
+
 void impressaoMatriz(int linhas, int colunas, float matriz[linhas][colunas]) {
     int i, j;
 
