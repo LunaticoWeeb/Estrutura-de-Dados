@@ -15,7 +15,7 @@ typedef struct {
 } Fila;
 
 Fila *CriarFila(void);
-void SetItemFila(Fila *fila, int value);
+void SetItemFila(Fila *fila, float value);
 //void PopItemFila(Fila *fila, int *target);
 //void GetItemFila(Fila *fila, int index, int *target);
 //void RemoveItemFila(Fila *fila);
