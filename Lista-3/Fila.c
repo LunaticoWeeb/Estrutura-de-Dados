@@ -45,12 +45,14 @@ float PopItemFila(Fila *fila)
 {
       // verifica se a fila está vazia:
       if (fila->size > 0){
-            float elemento = fila->first->value; // tira o primeiro valor da fila
-            Item *proximo = fila->first->next; // acha o próximo da fila
+            Item *primeiro = fila->first; // primeiro da fila
+            float elemento = primeiro->value; // valor do primeiro da fila
+            Item *proximo = primeiro->next; // acha o próximo da fila
             fila->first = proximo; // próximo vai pro início da fila
             (fila->size)--; // diminui tamanho da fila
       
-            //TODO: liberar memória
+            //liberar memória:
+            free(primeiro);
 
             return elemento;
       } else {
