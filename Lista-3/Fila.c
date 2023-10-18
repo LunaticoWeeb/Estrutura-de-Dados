@@ -9,5 +9,5 @@ Fila *CriarFila(void){
       nova_fila->last = NULL;
       nova_fila->size = 0;
 
-      return nova_fila;
+      return nova_fila; //wrfw\s
 };
