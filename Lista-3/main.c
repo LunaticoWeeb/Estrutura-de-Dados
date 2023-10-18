@@ -1,23 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "Fila.h"
 
 int main(void){
-      // Teste CriarFila:
+      //Teste SetItemFila, n elementos:
+      int n = 10;
       Fila *fila_main = CriarFila();
-      fila_main->size = 3;
-      printf("Tam: %d", fila_main->size);
+      for (int i = 1; i <= n; i++) {
+            SetItemFila(fila_main, (float) i);
+            float valor_primeiro, valor_ultimo;
+            valor_primeiro = fila_main->first->value;
+            printf("\n\n %f", valor_primeiro);
 
+            valor_ultimo = fila_main->last->value;
+            printf("\n %f", valor_ultimo);
 
-      //Teste SetItemFila, um elemento:
-      SetItemFila(fila_main, 2.0);
-      // - testa os valores do primeiro e ultimo (devem ser 2.0)
-      float valor_primeiro, valor_ultimo;
-      valor_primeiro = fila_main->first->value;
-      printf("\n %f", valor_primeiro);
-      valor_ultimo = fila_main->last->value;
-      printf("\n %f", valor_ultimo);
-      // - testa o tamanho da fila (deve ser 1)
-      float tam;
-      tam = fila_main->size;
-      printf("\n %d", tam);
+            int tam;
+            tam = fila_main->size;
+            printf("\n %d", tam);
+      }
+      
 };

@@ -13,30 +13,24 @@ Fila *CriarFila(void){
       return nova_fila;
 };
 
-
-void SetItemFila(Fila *fila, float value){
-      /*
-      cria novo item (aloca espaço)
-      se lista está vazia:
-            coloca item como primeiro
-            coloca item como ultimo
-      se ñ:
-            coloca endereço do novo item no next do item anterior
-      coloca value no value do novo_item
-      next do novo_item é NULL
-      aumenta size em um
-      */
+Item *CriarItem(float value){
       Item *novo_item = (Item*) malloc(sizeof(Item));
 
+      //Item vazio:
       novo_item->value = value;
-      novo_item->next = NULL; //último da fila
+      novo_item->next = NULL;
+}
+
+void SetItemFila(Fila *fila, float value){
+      Item *novo_item = CriarItem(value);
 
       if (fila->size == 0) {
             // É o único item na fila
             fila->first = novo_item;
-            fila->last = novo_item; //!!!!!!!!!!!ou usa &?
+            fila->last = novo_item;
       } else {
             fila->last->next = novo_item; // encadeia novo item com o anterior
+            fila->last = novo_item; // novo item é o último
       };
 
       (fila->size)++; // aumenta o tamanho da lista em 1

@@ -20,9 +20,4 @@ void SetItemFila(Fila *fila, float value);
 //void GetItemFila(Fila *fila, int index, int *target);
 //void RemoveItemFila(Fila *fila);
 
-//float LengthFila(Fila *fila);
-//float IsEmptyFila(Fila *fila);
-//void ReversedFila(Fila *fila, Fila *target);
-//void DestroyFila(Fila *fila);
-
 #endif //FILA_H
