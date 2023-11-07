@@ -145,6 +145,104 @@ int isEmptyLista(Lista *lista)
     return (lista->size == 0)? 1 : 0;
 }
 
+void printLista(Lista *lista)
+{
+    int i;
+    Item *cur;
+    printf("\nLista:\n");
+
+    printf("Tamanho: %d\n", lista->size);
+
+    if(isEmptyLista(lista)) {
+        printf("- Lista vazia!");
+    }
+    else {
+        i = 1;
+        cur = lista->first;
+        while(cur != NULL) {
+            printf("%d - %s\n", i++, cur->value);
+            cur = cur->prox;
+        }
+    }
+}
+
+void removeItem(Lista *lista, int index, int *erro)
+{
+    int i;
+    Item *cur, *ant, *prox;
+
+    if(isEmptyLista(lista)) {
+        *erro = 1;
+        printf("\nA lista está vazia!\n");
+        return;
+    } 
+    else if (index < 0) {
+        *erro = 1;
+        printf("\nO index não pode ser negativo!\n");
+        return;
+    } 
+    else {
+        *erro = 0;
+        
+        if (lista->size == 1) { // Caso a lista tenha apenas 1 item
+            cur = lista->first;
+            lista->first = NULL;
+            lista->last = NULL;
+        }
+        else if(index > lista->size) { // caso index > size
+            cur = lista->last;
+            ant = cur->ant;
+            ant->prox = NULL;
+            lista->last = ant;
+        }
+        else if(index > 1) { // caso 1 < index <= size
+            i = 1;
+            cur = lista->first;
+            while(i++ < index) cur = cur->prox;
+            ant = cur->ant;
+            prox = cur->prox;
+            
+            ant->prox = prox;
+            prox->ant = ant;
+        }
+        else { // Caso o index seja 0
+            cur = lista->first;
+            prox = cur->prox;
+
+            lista->first = prox;
+            prox->ant = NULL;
+        }
+
+        lista->size --;
+        free(cur);
+    }
+}
+
+void existsItem(Lista *lista, char *value, int *erro)
+{
+    int i;
+    Item *cur;
+
+    if(isEmptyLista(lista)) {
+        *erro = 1;
+        printf("\nA lista está vazia!\n");
+        return;
+    } 
+    else {
+        *erro = 0;
+        i = 1;
+        cur = lista->first;
+        while(cur != NULL) {
+            if(strcmp(cur->value, value) == 0) {
+                printf("\nO item %s existe na lista!\n", value);
+                return;
+            }
+            cur = cur->prox;
+        }
+        printf("\nO item %s não existe na lista!\n", value);
+    }
+}
+
 void destroyLista(Lista *lista) {
     int e;
     while(!isEmptyLista(lista)) {

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define maxStringSize 40
 
@@ -22,9 +23,13 @@ typedef struct {
 Lista* createLista();
 Item* createItem();
 
+void printLista(Lista *lista);
+
 void setItem(Lista *lista, char *value, int *erro);
 void insertItem(Lista *lista, int index, char *value, int *erro);
 char* getItem(Lista *lista, int *erro);
+void removeItem(Lista *lista, int index, int *erro);
+void existsItem(Lista *lista, char *value, int *erro);
 
 int isEmptyLista(Lista *lista);
 void destroyLista(Lista *lista);
