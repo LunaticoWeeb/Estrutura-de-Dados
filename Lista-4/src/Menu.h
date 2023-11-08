@@ -3,6 +3,7 @@
 
 #include "Lista.h"
 
+char *LerPalavra();
 char RecievesOperation(void);
 void EvokeOperation(char operation, Lista *list);
 

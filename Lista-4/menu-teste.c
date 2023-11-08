@@ -9,7 +9,7 @@ int main(void){
 
       while (exec)
       {
-            int operation = RecievesOperation();
+            char operation = RecievesOperation();
             EvokeOperation(operation, list);
 
             printf("\nDeseja continuar? (1 - Sim | 0 - Não): ");

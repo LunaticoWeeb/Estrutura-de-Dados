@@ -4,8 +4,6 @@
 
 #include "Lista.h"
 
-#define maxStringSize 40
-
 Lista* createLista()
 {
     Lista *new = (Lista*) malloc(sizeof(Lista));

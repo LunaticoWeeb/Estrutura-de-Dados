@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define maxStringSize 40
-
 typedef struct item_ Item;
 #ifndef item_
 struct item_ {
