@@ -243,6 +243,11 @@ void existsItem(Lista *lista, char *value, int *erro)
     }
 }
 
+int sizeLista(Lista *lista)
+{
+    return lista->size;
+}
+
 void destroyLista(Lista *lista) {
     int e;
     while(!isEmptyLista(lista)) {

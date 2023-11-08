@@ -1,4 +1,4 @@
-#include <stdlib.h>
+// #include <stdlib.h>
 #include "src/Lista.h"
 
 // void esvaziar(Lista *l) {
@@ -30,7 +30,7 @@ int main()
 
     // insert coloca as infos no index 
     frase = "Teste 2";
-    insertItem(i, 2, frase, &e);
+    insertItem(i, 1, frase, &e);
 
     printLista(i); 
 

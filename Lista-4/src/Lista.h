@@ -32,4 +32,5 @@ void removeItem(Lista *lista, int index, int *erro);
 void existsItem(Lista *lista, char *value, int *erro);
 
 int isEmptyLista(Lista *lista);
+int sizeLista(Lista *lista);
 void destroyLista(Lista *lista);
