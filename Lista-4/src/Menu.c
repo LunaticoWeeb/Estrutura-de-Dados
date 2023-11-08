@@ -23,7 +23,7 @@ char *LerPalavra(){
 char RecievesOperation(void){
 
       printf("\nDigite o número da operação desejada:" 
-      "\n0 - Inserir um novo Item"
+      "\n0 - Inserir um novo Item no final da lista"
       "\n1 - Inserir um novo Item em uma posição específica"
       "\n2 - Remover um Item"
       "\n3 - Consultar existência de um Item"
