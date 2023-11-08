@@ -1,12 +1,4 @@
-// #include <stdlib.h>
 #include "src/Lista.h"
-
-// void esvaziar(Lista *l) {
-//     int e;
-//     while(!isEmptyLista(l)) {
-//         puts(getItem(l, &e));
-//     }
-// }
 
 int main()
 {
