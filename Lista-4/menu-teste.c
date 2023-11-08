@@ -7,9 +7,11 @@ int main(void){
       int exec = 1;
       int e;
 
+      char typeLista = DefineTypeLista();
+      
       while (exec)
       {
-            char operation = RecievesOperation();
+            char operation = RecievesOperation(typeLista);
             EvokeOperation(operation, list);
 
             printf("\nDeseja continuar? (1 - Sim | 0 - Não): ");

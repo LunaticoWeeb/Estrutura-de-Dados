@@ -3,8 +3,9 @@
 
 #include "Lista.h"
 
-char *LerPalavra();
-char RecievesOperation(void);
+char *LerPalavra(void);
+char DefineTypeLista(void);
+char RecievesOperation(char typeLista);
 void EvokeOperation(char operation, Lista *list);
 
 #endif
