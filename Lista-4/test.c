@@ -38,7 +38,7 @@ int main()
     removeItem(i, 1, &e); 
     printLista(i);
 
-    insertItem(i, 2, "Teste A", &e);
+    insertItem(i, 10, "Teste A", &e);
     printLista(i);
 
     // existe o "Teste A" na lista?

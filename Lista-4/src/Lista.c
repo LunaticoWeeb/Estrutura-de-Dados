@@ -81,6 +81,7 @@ void insertItem(Lista *lista, int index, char *value, int *erro)
         }
         else if(index > lista->size) { // caso index > size
             item->ant = lista->last;
+            lista->last->prox = item;
             lista->last = item;
         }
         else if(index) { // caso 0 < index <= size
