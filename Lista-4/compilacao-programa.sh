@@ -1,0 +1,1 @@
+gcc program.c src/Lista.c src/Menu.c -o program.exe
