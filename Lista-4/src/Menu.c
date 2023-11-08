@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *LerPalavra(){
+char *LerPalavra(void){
       char *item = NULL;
       char c;
       int i = 0;
@@ -20,19 +20,60 @@ char *LerPalavra(){
       return item;
 }
 
-char RecievesOperation(void){
+char DefineTypeLista(void){
+      char type;
+      
+      printf("\nDeseja criar um lista ordenada (alfabeticamente)?"
+      "\nDigite (1 - Sim | 0 - Não):" );
+      scanf(" %c", &type);
 
-      printf("\nDigite o número da operação desejada:" 
-      "\n0 - Inserir um novo Item no final da lista"
-      "\n1 - Inserir um novo Item em uma posição específica"
-      "\n2 - Remover um Item"
-      "\n3 - Consultar existência de um Item"
-      "\n4 - Imprimir todos os Itens\n"
-      );
+      while(type != '0' && type != '1'){
+            printf("\nOpção inválida! Digite novamente: ");
+            scanf(" %c", &type);
+      }
 
-      char operation;
-      scanf(" %c", &operation);
-      return operation;
+      return type;
+}
+
+char RecievesOperation(char typeLista){
+
+      if(typeLista == '0'){
+            printf("\nDigite o número da operação desejada:" 
+            "\n0 - Inserir um novo Item no final da lista"
+            "\n1 - Inserir um novo Item em uma posição específica"
+            "\n2 - Remover um Item"
+            "\n3 - Consultar existência de um Item"
+            "\n4 - Imprimir todos os Itens\n"
+            );
+
+            char operation;
+            scanf(" %c", &operation);
+            return operation;
+      } else {
+            char operation;
+
+            printf("\nDigite o número da operação desejada:" 
+            "\n1 - Inserir um novo Item"
+            "\n2 - Remover um Item"
+            "\n3 - Consultar existência de um Item"
+            "\n4 - Imprimir todos os Itens\n"
+            );
+            scanf(" %c", &operation);
+
+            switch (operation)
+            {
+            case '0': // operação inválida
+                  operation = '6';
+                  break;
+            case '1':
+                  operation = '5';
+                  break;
+            default:
+                  break;
+            }
+
+            return operation;
+      }
 }
 
 void EvokeOperation(char operation, Lista *list){
@@ -75,6 +116,13 @@ void EvokeOperation(char operation, Lista *list){
             break;
       case '4':
             printLista(list);
+            break;
+      case '5': //lista ordenada
+            printf("\nDigite o nome do Item: ");
+            name = LerPalavra();
+
+            insertItemOrdenado(list, name, &e);
+            free(name);
             break;
       default:
             printf("\nOperação inválida!");
