@@ -3,28 +3,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *LerPalavra(){
+char *LerPalavra(){ //FIXME: parace que não está lendo o primeiro caractere
       char *item = NULL;
       char c;
       int i = 0;
 
-      while((c = getchar()) == '\n');
+      while((c = getchar()) == '\n'); // Ignora o \n do buffer
 
       do{
-            c = getchar();
             item = (char *)realloc(item, sizeof(char) * (i + 1));
             item[i++] = c;
+      } while ((c = getchar()) != '\n' && c != EOF);
 
-      } while (c != '\n');
-
-      item[i - 1] = '\0';
+      if(i > 0) item[i] = '\0';
+      
       return item;
 }
 
 char RecievesOperation(void){
 
       printf("\nDigite o número da operação desejada:" 
-      "\n1 - Inserir um novo Item"
+      "\n0 - Inserir um novo Item"
+      "\n1 - Inserir um novo Item em uma posição específica"
       "\n2 - Remover um Item"
       "\n3 - Consultar existência de um Item"
       "\n4 - Imprimir todos os Itens\n"
@@ -43,6 +43,13 @@ void EvokeOperation(char operation, Lista *list){
 
       switch (operation)
       {
+      case '0':
+            printf("\nDigite o nome do Item: ");
+            name = LerPalavra();
+
+            setItem(list, name, &e);
+            free(name);
+            break;
       case '1':
             printf("\nDigite o nome do Item: ");
             name = LerPalavra();

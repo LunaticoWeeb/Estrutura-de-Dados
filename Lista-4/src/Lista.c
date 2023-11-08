@@ -31,7 +31,7 @@ Item* createItem(char *value)
     }
     else {
         new->value = (char*) malloc(sizeof(value));
-        new->value = value;
+        strcpy(new->value, value);
         new->prox = NULL;
         new->ant = NULL;
         return new;
