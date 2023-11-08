@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *LerPalavra(){ //FIXME: parace que não está lendo o primeiro caractere
+char *LerPalavra(){
       char *item = NULL;
       char c;
       int i = 0;
