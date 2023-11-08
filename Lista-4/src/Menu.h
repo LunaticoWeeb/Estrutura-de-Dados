@@ -3,7 +3,7 @@
 
 #include "Lista.h"
 
-int RecievesOperation(void);
-void EvokeOperation(int operation, Lista *list);
+char RecievesOperation(void);
+void EvokeOperation(char operation, Lista *list);
 
 #endif
