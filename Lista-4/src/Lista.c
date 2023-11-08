@@ -132,53 +132,13 @@ void insertItemOrdenado(Lista *lista, char *value, int *erro)
             insertItem(lista, 0, value, erro);
         }
         else if(i > lista->size) { // Caso seja o último item
-            insertItem(lista, lista->size, value, erro);
+            insertItem(lista, (lista->size + 1), value, erro);
         }
         else { // Caso seja um item do meio
             insertItem(lista, i-1, value, erro);
         }
     }
 }
-
-// void insertItemOrdenado(Lista *lista, char *value, int *erro)
-// {
-//     int e, i;
-//     Item *item = createItem(value), *cur, *prox;
-
-//     if(item == NULL) {
-//         *erro = 1;
-//         printf("Não foi possível alocar memória para adicionar item na lista!");
-//         return;
-//     }
-//     else {
-//         *erro = 0;
-//         if(isEmptyLista(lista)) { // Lista vazia
-//             lista->first = item;
-//             lista->last = item;
-//         }
-//         else {
-//             i = 1;
-//             cur = lista->first;
-//             while(cur != NULL) {
-//                 if(strcmp(cur->value, value) > 0) {
-//                     break;
-//                 }
-//                 cur = cur->prox;
-//                 i++;
-//             }
-
-//             if(i == 1) { //Caso seja o primeiro item
-//                 insertItem(lista, 0, value, &e);
-//             }
-//             else if(i > lista->size) { // Caso seja o último item
-//                 insertItem(lista, lista->size, value, &e);
-//             }
-//             else { // Caso seja um item do meio
-//                 insertItem(lista, i-1, value, &e);
-//             }
-//         }
-//     }
-// }
 
 char* getItem(Lista *lista, int *erro)
 {
