@@ -25,6 +25,7 @@ void printLista(Lista *lista);
 
 void setItem(Lista *lista, char *value, int *erro);
 void insertItem(Lista *lista, int index, char *value, int *erro);
+void insertItemOrdenado(Lista *lista, char *value, int *erro);
 char* getItem(Lista *lista, int *erro);
 void removeItem(Lista *lista, int index, int *erro);
 void existsItem(Lista *lista, char *value, int *erro);
